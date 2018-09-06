@@ -1,0 +1,9 @@
+{
+	"autoload": {
+		"psr-4": {
+			"app\\": "app/"
+		},
+		"files": ["common/function.php", "common/helper.php"],
+		"classmap": ["lib/"]
+	}
+}
