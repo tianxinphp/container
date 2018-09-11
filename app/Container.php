@@ -24,7 +24,7 @@ class Container
     }
 
 
-    public function methodBindParams($className)
+    private  function methodBindParams($className)
     {
         $reflect = new reflect($className,'__construct');
         return $reflect->bindParamsToMethod();

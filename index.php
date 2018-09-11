@@ -2,20 +2,18 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-
-use app\Controller;
-use app\Model;
+use app\Container;
 use app\searchModel\SearchModel;
-use app\MyReflectionMerhod;
+use app\myInterface\ModelInterFace;
+use app\Controller;
 
-$reflect=new MyReflectionMerhod(Controller::class,'__construct');
-$parameters=$reflect->getParameters();
-print_r($parameters[0]->getClass()->name);
+$container=new Container();
 
+$container->bind(ModelInterFace::class,SearchModel::class);
 
+$controller=$container->make(Controller::class);
 
-
-
+$controller->getName();
 
 //call_user_func([new Controller(new SearchModel()),'getName']);
 

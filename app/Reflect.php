@@ -9,6 +9,7 @@
 namespace app;
 
 use app\MyReflectionMerhod;
+use app\MyReflectionClass;
 class Reflect
 {
     private $className;
@@ -21,11 +22,32 @@ class Reflect
     }
 
 
-    public function make(){
+    /**
+     *实现
+     * @param $bind
+     * @param $methodBindParams
+     * @return mixed
+     */
+    public function make($bind,$methodBindParams){
+        $args = [];
+        foreach ($methodBindParams as $className => $params) {
+            foreach ($params as $param) {
+                list($paramName,$paramType) = $param;
 
+                $paramName = new $bind[$paramType]();
+
+                array_push($args, $paramName);
+            }
+        }
+        $reflectionClass = new MyReflectionClass($this->className);
+        return $reflectionClass->newInstanceArgs($args);
     }
 
 
+    /**
+     * 取出构造函数中所有注入参数的类
+     * @return array
+     */
     public function bindParamsToMethod(){
         $params = [];
         $method  = new MyReflectionMerhod($this->className,$this->methodName);
