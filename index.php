@@ -10,9 +10,9 @@ use app\Model;
 
 $container=new Container();
 
-$container->bind(ModelInterFace::class,SearchModel::class);
+$container->bind('ModelInterFace',SearchModel::class);
 
-$container->bind(ModelInterFace::class,Model::class);
+//$container->bind(ModelInterFace::class,Model::class);
 
 $controller=$container->make(Controller::class);
 
