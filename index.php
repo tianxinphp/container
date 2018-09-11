@@ -10,7 +10,7 @@ use app\MyReflectionMerhod;
 
 $reflect=new MyReflectionMerhod(Controller::class,'__construct');
 $parameters=$reflect->getParameters();
-print_r($parameters[0]->getClass());
+print_r($parameters[0]->getClass()->name);
 
 
 
