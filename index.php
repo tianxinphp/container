@@ -9,7 +9,7 @@ use app\searchModel\SearchModel;
 use app\MyReflectionMerhod;
 
 $reflect=new MyReflectionMerhod(Controller::class,'__construct');
-print_r($reflect);
+print_r($reflect->getParameters());
 
 
 
