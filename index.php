@@ -6,7 +6,6 @@ use app\Container;
 use app\searchModel\SearchModel;
 use app\myInterface\ModelInterFace;
 use app\Controller;
-use app\Model;
 
 $container=new Container();
 

@@ -8,8 +8,8 @@
 
 namespace app;
 
-
-class MyReflectionMerhod extends \ReflectionMethod
+use ReflectionMethod;
+class MyReflectionMerhod extends ReflectionMethod
 {
 
 }
